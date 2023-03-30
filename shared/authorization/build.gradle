@@ -1,0 +1,14 @@
+apply plugin: Plugins.android_library
+apply plugin: Plugins.kotlin_android
+
+apply from: "$rootDir/build_system/androidLibrary.gradle"
+dependencies {
+	implementation Dependencies.kotlin_standart_library
+	implementation Dependencies.core
+	implementation Dependencies.koin_core
+	implementation Dependencies.koin_android
+	implementation Dependencies.accompanist
+	implementation Dependencies.retrofit
+	implementation Dependencies.moshi
+	implementation Dependencies.moshi_converter
+}
