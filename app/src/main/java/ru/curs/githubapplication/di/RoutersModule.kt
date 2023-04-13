@@ -9,7 +9,11 @@ import org.koin.dsl.module
 import ru.curs.githubapplication.feature.authorization.presentation.AuthorizationRouter
 import ru.curs.githubapplication.feature.splash.presentation.SplashRouter
 import ru.curs.githubapplication.navigation.router.AuthorizationRouterImpl
+import ru.curs.githubapplication.navigation.router.FollowRouterImpl
 import ru.curs.githubapplication.navigation.router.SplashRouterImpl
+import ru.curs.githubapplication.navigation.router.UserProfileRouterImpl
+import ru.curs.githubapplication.presentation.FollowRouter
+import ru.curs.githubapplication.userprofile.presentation.UserProfileRouter
 
 val routersModule = module {
 	single<NavController> {
@@ -20,4 +24,6 @@ val routersModule = module {
 	}
 	factory<SplashRouter> { SplashRouterImpl(get()) }
 	factory<AuthorizationRouter> { AuthorizationRouterImpl(get()) }
+	factory<UserProfileRouter> { UserProfileRouterImpl(get()) }
+	factory<FollowRouter> { FollowRouterImpl(get()) }
 }

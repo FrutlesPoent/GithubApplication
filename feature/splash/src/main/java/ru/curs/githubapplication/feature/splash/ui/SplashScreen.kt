@@ -22,6 +22,7 @@ import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import org.koin.androidx.compose.getViewModel
 import ru.curs.githubapplication.component.design.resources.theme.Dark100
 import ru.curs.githubapplication.component.design.resources.theme.Dark50
+import ru.curs.githubapplication.component.design.resources.theme.Dark75
 import ru.curs.githubapplication.component.design.resources.theme.Light100
 import ru.curs.githubapplication.component.design.resources.theme.Violet100
 import ru.curs.githubapplication.feature.splash.presentation.SplashViewModel
@@ -31,7 +32,7 @@ fun SplashScreen(viewModel: SplashViewModel = getViewModel()) {
 	val systemUiController = rememberSystemUiController()
 	systemUiController.setNavigationBarColor(Light100)
 	systemUiController.navigationBarDarkContentEnabled = true
-	systemUiController.setStatusBarColor(Violet100)
+	systemUiController.setStatusBarColor(Dark75)
 
 	AnimatedVisibility(
 		visible = true,

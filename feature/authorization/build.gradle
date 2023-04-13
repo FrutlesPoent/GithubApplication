@@ -16,7 +16,13 @@ dependencies {
 	implementation Dependencies.compose_activity
 	implementation Dependencies.compose_runtime
 	implementation Dependencies.accompanist
+	implementation Dependencies.appauth
+	implementation Dependencies.androidx_activity
 
 	implementation(project(':component:ui'))
 	implementation(project(':component:design:resources'))
+	implementation implementation(project(':component:design:composable',))
+	implementation 'androidx.browser:browser:1.4.0'
+
+	implementation(project(':library:network'))
 }

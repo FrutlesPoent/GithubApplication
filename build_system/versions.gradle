@@ -27,4 +27,5 @@ ext.Versions = [
 	APPAUTH           : "0.9.1",
 	MOSHI             : "1.13.0",
 	MOSHI_CONVERTER   : "2.9.0",
+	ANDROIDX          : "1.2.0",
 ]

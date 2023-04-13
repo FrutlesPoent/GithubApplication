@@ -1,6 +1,5 @@
 package ru.curs.githubapplication.feature.splash.presentation
 
-import kotlinx.coroutines.delay
 import ru.curs.githubapplication.component.ui.mvvm.BaseViewModel
 
 class SplashViewModel(
@@ -8,9 +7,7 @@ class SplashViewModel(
 ) : BaseViewModel() {
 
 	init {
-		launch {
-			openLogin()
-		}
+		openLogin()
 	}
 
 	private fun openLogin() {

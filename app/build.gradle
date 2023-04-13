@@ -24,6 +24,13 @@ dependencies {
 
 	implementation(project(":feature:splash"))
 	implementation(project(":feature:authorization"))
+	implementation(project(":feature:userprofile"))
+	implementation(project(":feature:follow"))
+
+	implementation(project(":shared:userprofile"))
+	implementation(project(":shared:follow"))
+
+	implementation(project(":library:network"))
 
 	implementation(project(":component:ui"))
 	implementation(project(":component:design:resources"))

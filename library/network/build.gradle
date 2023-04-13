@@ -1,5 +1,6 @@
 apply plugin: Plugins.android_library
 apply plugin: Plugins.kotlin_android
+apply plugin: Plugins.kotlin_kapt
 
 apply from: "$rootDir/build_system/androidLibrary.gradle"
 dependencies {
@@ -9,6 +10,7 @@ dependencies {
 	implementation Dependencies.koin_compose
 	implementation Dependencies.koin_android
 	implementation Dependencies.appauth
-
-
+	implementation Dependencies.retrofit
+	implementation Dependencies.moshi
+	implementation Dependencies.moshi_converter
 }

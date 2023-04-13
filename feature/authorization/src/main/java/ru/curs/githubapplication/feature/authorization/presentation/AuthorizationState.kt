@@ -2,9 +2,7 @@ package ru.curs.githubapplication.feature.authorization.presentation
 
 sealed class AuthorizationState {
 
-	object Initial : AuthorizationState()
+	data class Content(val isLoginPageOpen: Boolean) : AuthorizationState()
 
-	object Loading : AuthorizationState()
-
-	object Content : AuthorizationState()
+	object Error : AuthorizationState()
 }

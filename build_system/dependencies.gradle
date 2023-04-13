@@ -45,10 +45,12 @@ ext.Dependencies = [
 	compose_navigation     : "androidx.navigation:navigation-compose:${Versions.COMPOSE_NAVIGATION}",
 	compose_runtime        : "androidx.compose.runtime:runtime:${Versions.COMPOSE}",
 	koin_compose           : "io.insert-koin:koin-androidx-compose:${Versions.KOIN}",
+	androidx_activity      : "androidx.activity:activity-ktx:${Versions.ANDROIDX}",
 
 	accompanist            : "com.google.accompanist:accompanist-systemuicontroller:${Versions.ACCOMPANIST}",
 	appauth                : "net.openid:appauth:${Versions.APPAUTH}",
 	moshi                  : "com.squareup.moshi:moshi-kotlin:${Versions.MOSHI}",
 	moshi_converter        : "com.squareup.retrofit2:converter-moshi:${Versions.MOSHI_CONVERTER}",
+	moshi_codegen          : "com.squareup.moshi:moshi-kotlin-codegen${Versions.MOSHI}",
 
 ]

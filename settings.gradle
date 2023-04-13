@@ -4,10 +4,14 @@ include ':app'
 
 include ':component:design:resources'
 include ':component:ui'
+include ':component:design:composable'
 
 include ':feature:splash'
 include ':feature:authorization'
+include ':feature:userprofile'
+include ':feature:follow'
 
-include ':shared:authorization'
+include ':shared:userprofile'
+include ':shared:follow'
 
 include ':library:network'

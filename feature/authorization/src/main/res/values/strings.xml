@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="authorization_hint">Нажмите на кнопку, чтобы перейти к авторизации</string>
+	<string name="authorization_button">Авторизация</string>
+</resources>
