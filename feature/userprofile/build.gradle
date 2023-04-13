@@ -18,14 +18,15 @@ dependencies {
 	implementation Dependencies.accompanist
 	implementation Dependencies.appauth
 	implementation Dependencies.androidx_activity
+	implementation Dependencies.coil
+	implementation Dependencies.androidx_browser
 
 	implementation(project(':component:ui'))
 	implementation(project(':component:design:resources'))
-	implementation implementation(project(':component:design:composable',))
-	implementation 'androidx.browser:browser:1.4.0'
-	implementation"io.coil-kt:coil-compose:2.0.0-rc01"
+	implementation(project(':component:design:composable'))
 
 	implementation(project(":shared:userprofile"))
+	implementation(project(":shared:repository"))
 
 	implementation(project(':library:network'))
 }

@@ -5,6 +5,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -35,11 +36,13 @@ fun FollowScreen(viewModel: FollowViewModel = getViewModel()) {
 	}
 
 	AnimatedVisibility(visible = viewModel.state is FollowState.Loading) {
-		Column {
-			AppBar(text = "Следящие", viewModel::back)
-			LoadingScreen()
-		}
+		Surface(color = MaterialTheme.colors.primaryVariant) {
 
+			Column {
+				AppBar(text = "Следящие", viewModel::back)
+				LoadingScreen()
+			}
+		}
 	}
 
 	AnimatedVisibility(visible = viewModel.state is FollowState.Content) {
@@ -55,7 +58,9 @@ fun FollowScreen(viewModel: FollowViewModel = getViewModel()) {
 fun ListItem(userName: String, userImgUrl: String, openAccountDetailsClick: (String) -> Unit) {
 	Surface(
 		color = MaterialTheme.colors.primary,
-		modifier = Modifier.padding(vertical = 4.dp, horizontal = 8.dp)
+		modifier = Modifier
+			.padding(vertical = 4.dp, horizontal = 8.dp)
+			.fillMaxSize()
 	) {
 		Row {
 			Image(
@@ -92,8 +97,15 @@ fun ContentScreen(
 	backButtonClick: () -> Unit,
 	openAccountDetailsClick: (String) -> Unit,
 ) {
-	Column {
-		AppBar(text = "Следящие", backButtonClick)
-		RecyclerView(followState.followersList, openAccountDetailsClick)
+	Surface(
+		color = MaterialTheme.colors.primaryVariant,
+		modifier = Modifier
+			.fillMaxSize()
+	) {
+
+		Column {
+			AppBar(text = "Следящие", backButtonClick)
+			RecyclerView(followState.followersList, openAccountDetailsClick)
+		}
 	}
 }

@@ -4,6 +4,7 @@
 	package="ru.curs.githubapplication.app">
 
 	<uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 	<application
 		android:name=".App"
 		android:allowBackup="true"

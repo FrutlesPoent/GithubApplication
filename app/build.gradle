@@ -29,6 +29,7 @@ dependencies {
 
 	implementation(project(":shared:userprofile"))
 	implementation(project(":shared:follow"))
+	implementation(project(":shared:repository"))
 
 	implementation(project(":library:network"))
 

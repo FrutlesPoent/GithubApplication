@@ -5,4 +5,5 @@ enum class NavigationTree {
 	Authorization,
 	UserProfile,
 	Follows,
+	UserProfileDetail,
 }

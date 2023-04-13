@@ -20,6 +20,12 @@ fun ApplicationScreen() {
 		composable(NavigationTree.Authorization.name) { AuthorizationScreen() }
 		composable(NavigationTree.UserProfile.name) { UserProfileScreen() }
 		composable(NavigationTree.Follows.name) { FollowScreen() }
+		composable(NavigationTree.UserProfileDetail.name + "/{username}") {navBackStackEntry ->
+			navBackStackEntry.arguments?.getString("username")?.let { userNameString ->
+				// TODO Добавить детали
+			}
+			
+		}
 	}
 
 }

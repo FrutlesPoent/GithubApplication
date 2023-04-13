@@ -32,6 +32,7 @@ import androidx.compose.ui.unit.dp
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import org.koin.androidx.compose.getViewModel
 import ru.curs.githubapplication.component.design.loading.LoadingScreen
+import ru.curs.githubapplication.component.design.navbarcolor.NavbarColor
 import ru.curs.githubapplication.component.design.resources.theme.Dark50
 import ru.curs.githubapplication.component.design.resources.theme.Inter
 import ru.curs.githubapplication.component.design.resources.theme.Light100
@@ -41,6 +42,8 @@ import ru.curs.githubapplication.feature.authorization.presentation.Authorizatio
 
 @Composable
 fun AuthorizationScreen(viewModel: AuthorizationViewModel = getViewModel()) {
+	NavbarColor()
+
 	val getAuthResponse = rememberLauncherForActivityResult(
 		contract = ActivityResultContracts.StartActivityForResult()
 	) {

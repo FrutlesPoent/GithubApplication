@@ -5,10 +5,14 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import ru.curs.githubapplication.component.ui.mvvm.BaseViewModel
 import ru.curs.githubapplication.domain.entity.UserProfile
+import ru.curs.githubapplication.domain.usecase.GetRepositoryListUseCase
+import ru.curs.githubapplication.domain.usecase.GetRepositoryReadmeUseCase
 import ru.curs.githubapplication.domain.usecase.GetUserProfileUseCase
 
 class UserProfileViewModel(
 	private val getUserProfileUseCase: GetUserProfileUseCase,
+	private val getRepositoryListUseCase: GetRepositoryListUseCase,
+	private val getRepositoryReadmeUseCase: GetRepositoryReadmeUseCase,
 	private val router: UserProfileRouter,
 ) : BaseViewModel() {
 
@@ -23,14 +27,28 @@ class UserProfileViewModel(
 			launch {
 				state = UserProfileState.Loading
 				val profileInfo = getUserProfileUseCase()
+				val repositoryList = getRepositoryListUseCase()
+				val readmeRepository = getRepositoryReadmeUseCase(profileInfo.login)
 				userProfileInfo = profileInfo
-				state = UserProfileState.Content(userProfile = profileInfo)
+				state = UserProfileState.Content(
+					userProfile = profileInfo,
+					repositoryList = repositoryList,
+					readmeRepo = readmeRepository,
+				)
 			}
 		}
 	}
 
 	fun openFollowers() {
 		router.openFollowers()
+	}
+
+	fun openRepository(repositoy: String) {
+		// todo router.openDetails(repositoy)
+	}
+
+	fun nothing() {
+
 	}
 
 	fun openFollowing() {

@@ -18,5 +18,6 @@ dependencies {
 	implementation Dependencies.accompanist
 
 	implementation(project(':component:ui'))
+	implementation(project(':component:design:composable'))
 	implementation(project(':component:design:resources'))
 }

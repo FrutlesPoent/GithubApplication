@@ -8,8 +8,8 @@ class UserProfileRouterImpl(
 	private val navController: NavController,
 ) : UserProfileRouter {
 
-	override fun openDetails() {
-
+	override fun openDetails(username: String) {
+		navController.navigate(NavigationTree.UserProfileDetail.name + "/$username")
 	}
 
 	override fun openFollowers() {
@@ -17,6 +17,6 @@ class UserProfileRouterImpl(
 	}
 
 	override fun openFollowing() {
-		TODO("Not yet implemented")
+		// TODO("Not yet implemented")
 	}
 }

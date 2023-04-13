@@ -8,6 +8,8 @@ val userProfileViewModelModule = module {
 	viewModel {
 		UserProfileViewModel(
 			getUserProfileUseCase = get(),
+			getRepositoryListUseCase = get(),
+			getRepositoryReadmeUseCase = get(),
 			router = get(),
 		)
 	}

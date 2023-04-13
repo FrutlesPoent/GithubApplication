@@ -18,21 +18,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import org.koin.androidx.compose.getViewModel
+import ru.curs.githubapplication.component.design.navbarcolor.NavbarColor
 import ru.curs.githubapplication.component.design.resources.theme.Dark100
 import ru.curs.githubapplication.component.design.resources.theme.Dark50
-import ru.curs.githubapplication.component.design.resources.theme.Dark75
-import ru.curs.githubapplication.component.design.resources.theme.Light100
-import ru.curs.githubapplication.component.design.resources.theme.Violet100
 import ru.curs.githubapplication.feature.splash.presentation.SplashViewModel
 
 @Composable
 fun SplashScreen(viewModel: SplashViewModel = getViewModel()) {
-	val systemUiController = rememberSystemUiController()
-	systemUiController.setNavigationBarColor(Light100)
-	systemUiController.navigationBarDarkContentEnabled = true
-	systemUiController.setStatusBarColor(Dark75)
+	NavbarColor()
 
 	AnimatedVisibility(
 		visible = true,
@@ -58,9 +52,11 @@ fun SplashScreen(viewModel: SplashViewModel = getViewModel()) {
 					contentDescription = null,
 					tint = Dark100,
 				)
-				Box(modifier = Modifier
-					.fillMaxSize()
-					.size(50.dp)) {
+				Box(
+					modifier = Modifier
+						.fillMaxSize()
+						.size(50.dp)
+				) {
 					CircularProgressIndicator(
 						modifier = Modifier.align(Alignment.Center),
 						color = Color.White,

@@ -53,4 +53,7 @@ ext.Dependencies = [
 	moshi_converter        : "com.squareup.retrofit2:converter-moshi:${Versions.MOSHI_CONVERTER}",
 	moshi_codegen          : "com.squareup.moshi:moshi-kotlin-codegen${Versions.MOSHI}",
 
+	coil                   : "io.coil-kt:coil-compose:${Versions.COIL}",
+	androidx_browser       : "androidx.browser:browser:${Versions.ANDROIDX_BROWSER}"
+
 ]

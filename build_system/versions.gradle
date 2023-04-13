@@ -28,4 +28,6 @@ ext.Versions = [
 	MOSHI             : "1.13.0",
 	MOSHI_CONVERTER   : "2.9.0",
 	ANDROIDX          : "1.2.0",
+	COIL              : "2.0.0-rc01",
+	ANDROIDX_BROWSER   : "1.4.0",
 ]

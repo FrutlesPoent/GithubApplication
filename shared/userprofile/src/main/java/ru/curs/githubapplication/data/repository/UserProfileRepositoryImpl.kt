@@ -9,7 +9,6 @@ class UserProfileRepositoryImpl(
 ) : UserProfileRepository {
 
 	override suspend fun getUserProfile(): UserProfile {
-		println(dataSource.getUserProfile())
 		return dataSource.getUserProfile()
 	}
 }

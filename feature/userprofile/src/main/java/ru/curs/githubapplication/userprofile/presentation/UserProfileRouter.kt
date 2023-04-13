@@ -2,7 +2,7 @@ package ru.curs.githubapplication.userprofile.presentation
 
 interface UserProfileRouter {
 
-	fun openDetails()
+	fun openDetails(username: String)
 
 	fun openFollowers()
 

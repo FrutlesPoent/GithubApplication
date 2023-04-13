@@ -12,6 +12,7 @@ import ru.curs.githubapplication.component.design.resources.theme.GithubApplicat
 import ru.curs.githubapplication.data.auth.di.appAuthModule
 import ru.curs.githubapplication.data.auth.di.networkModule
 import ru.curs.githubapplication.data.di.fetchFollowersModule
+import ru.curs.githubapplication.data.di.repositoryModule
 import ru.curs.githubapplication.data.di.userProfileModule
 import ru.curs.githubapplication.di.followModule
 import ru.curs.githubapplication.di.routersModule
@@ -33,6 +34,7 @@ class MainActivity : FragmentActivity() {
 			userProfileModule,
 			followModule,
 			fetchFollowersModule,
+			repositoryModule,
 		)
 	}
 

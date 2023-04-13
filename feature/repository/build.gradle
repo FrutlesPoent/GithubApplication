@@ -23,9 +23,9 @@ dependencies {
 
 	implementation(project(':component:ui'))
 	implementation(project(':component:design:resources'))
-	implementation(project(':component:design:composable'))
+	implementation(project(':component:design:composable',))
 
-	implementation(project(':shared:follow'))
+	implementation(project(':shared:repository'))
 
 	implementation(project(':library:network'))
 }
