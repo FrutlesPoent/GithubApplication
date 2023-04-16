@@ -15,9 +15,13 @@ import ru.curs.githubapplication.data.di.fetchFollowersModule
 import ru.curs.githubapplication.data.di.repositoryModule
 import ru.curs.githubapplication.data.di.userProfileModule
 import ru.curs.githubapplication.di.followModule
+import ru.curs.githubapplication.di.rawDataParser
 import ru.curs.githubapplication.di.routersModule
 import ru.curs.githubapplication.feature.authorization.di.authorizationModule
 import ru.curs.githubapplication.feature.splash.di.splashModule
+import ru.curs.githubapplication.fileview.di.fileViewViewModelModule
+import ru.curs.githubapplication.repository.di.repositoryViewModel
+import ru.curs.githubapplication.repositorydetail.di.repositoryDetailViewModelModule
 import ru.curs.githubapplication.userprofile.di.userProfileViewModelModule
 
 class MainActivity : FragmentActivity() {
@@ -35,6 +39,10 @@ class MainActivity : FragmentActivity() {
 			followModule,
 			fetchFollowersModule,
 			repositoryModule,
+			repositoryViewModel,
+			rawDataParser,
+			repositoryDetailViewModelModule,
+			fileViewViewModelModule,
 		)
 	}
 

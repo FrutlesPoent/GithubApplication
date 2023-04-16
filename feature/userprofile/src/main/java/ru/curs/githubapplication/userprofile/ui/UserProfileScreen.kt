@@ -26,6 +26,7 @@ import androidx.compose.ui.unit.dp
 import coil.compose.rememberAsyncImagePainter
 import org.koin.androidx.compose.getViewModel
 import ru.curs.githubapplication.component.design.TextWithIcon.TextWithIcon
+import ru.curs.githubapplication.component.design.error.ErrorScreen
 import ru.curs.githubapplication.component.design.icon.IconWithText
 import ru.curs.githubapplication.component.design.loading.LoadingProfile
 import ru.curs.githubapplication.component.design.navbarcolor.NavbarColor
@@ -46,7 +47,6 @@ fun UserProfileScreen(viewModel: UserProfileViewModel = getViewModel()) {
 		modifier = Modifier
 			.fillMaxSize()
 	) {
-
 		AnimatedVisibility(visible = viewModel.state == UserProfileState.Initial) {
 			LoadingProfile()
 			viewModel.init()
@@ -56,10 +56,17 @@ fun UserProfileScreen(viewModel: UserProfileViewModel = getViewModel()) {
 			visible = viewModel.state == UserProfileState.Loading
 		) {
 			Column {
-				AppBar(text = "Профиль", viewModel::init)
+				AppBar(text = "Профиль", viewModel::nothing)
 				LoadingProfile()
 			}
 
+		}
+
+		AnimatedVisibility(visible = viewModel.state == UserProfileState.Error) {
+			Column {
+				AppBar(text = "Профиль", viewModel::nothing)
+				ErrorScreen(viewModel::loadOnError)
+			}
 		}
 		AnimatedVisibility(visible = viewModel.state is UserProfileState.Content) {
 			val contentState = viewModel.state as UserProfileState.Content
@@ -84,24 +91,32 @@ fun UserProfileScreen(viewModel: UserProfileViewModel = getViewModel()) {
 				Spacer(modifier = Modifier.padding(4.dp))
 				TextWithIcon(
 					text = "Репозитории",
-					count = contentState.userProfile.public_repos + contentState.userProfile.owned_private_repos,
+					rightText = (contentState.userProfile.public_repos + contentState.userProfile.owned_private_repos).toString(),
 					viewModel::nothing,
 					painter = painterResource(ru.curs.githubapplication.component.design.resources.R.drawable.repository)
 				)
 				Spacer(modifier = Modifier.padding(4.dp))
 				TextWithIcon(
 					text = "Организации",
-					count = 1,
+					rightText = 1.toString(),
 					viewModel::nothing,
 					painter = painterResource(id = ru.curs.githubapplication.component.design.resources.R.drawable.organization)
 				)
 				Spacer(modifier = Modifier.padding(4.dp))
 				TextWithIcon(
 					text = "Обо мне",
-					count = 0,
-					repositoryListClick = { /*TODO*/ },
+					rightText = if (contentState.readmeRepo.first().download_url != null) 1.toString() else 0.toString(),
+					listClick = { /*TODO*/ },
 					painter = rememberAsyncImagePainter(contentState.userProfile.avatar_url)
 				)
+//				if (contentState.readmeRepo.first().download_url != null) {
+//					MarkDown(
+//						url = URL(contentState.readmeRepo.first().git_url),
+//						modifier = Modifier
+//							.fillMaxSize(),
+//						shouldOpenUrlInBrowser = true,
+//					)
+//				}
 			}
 		}
 	}

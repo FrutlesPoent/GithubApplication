@@ -26,12 +26,16 @@ dependencies {
 	implementation(project(":feature:authorization"))
 	implementation(project(":feature:userprofile"))
 	implementation(project(":feature:follow"))
+	implementation(project(":feature:webview"))
+	implementation(project(":feature:repository"))
+	implementation(project(":feature:issue"))
 
 	implementation(project(":shared:userprofile"))
 	implementation(project(":shared:follow"))
 	implementation(project(":shared:repository"))
 
 	implementation(project(":library:network"))
+	implementation(project(":library:rawdataparser"))
 
 	implementation(project(":component:ui"))
 	implementation(project(":component:design:resources"))

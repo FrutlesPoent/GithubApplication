@@ -9,6 +9,7 @@ class SplashRouterImpl(
 ) : SplashRouter {
 
 	override fun openLogin() {
+		navController.popBackStack()
 		navController.navigate(NavigationTree.Authorization.name)
 	}
 }

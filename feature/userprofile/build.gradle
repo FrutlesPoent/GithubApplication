@@ -29,4 +29,6 @@ dependencies {
 	implementation(project(":shared:repository"))
 
 	implementation(project(':library:network'))
+
+	implementation 'com.github.mukeshsolanki:MarkdownView-Android:2.0.0'
 }

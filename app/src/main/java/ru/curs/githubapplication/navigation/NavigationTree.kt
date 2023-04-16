@@ -6,4 +6,8 @@ enum class NavigationTree {
 	UserProfile,
 	Follows,
 	UserProfileDetail,
+	Webview,
+	Repository,
+	RepositoryDetail,
+	FileView,
 }

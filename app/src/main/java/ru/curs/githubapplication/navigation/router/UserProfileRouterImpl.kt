@@ -1,7 +1,9 @@
 package ru.curs.githubapplication.navigation.router
 
 import androidx.navigation.NavController
+import ru.curs.githubapplication.domain.entity.RepositoryTree
 import ru.curs.githubapplication.navigation.NavigationTree
+import ru.curs.githubapplication.navigation.ext.toJson
 import ru.curs.githubapplication.userprofile.presentation.UserProfileRouter
 
 class UserProfileRouterImpl(
@@ -17,6 +19,11 @@ class UserProfileRouterImpl(
 	}
 
 	override fun openFollowing() {
-		// TODO("Not yet implemented")
+		navController.navigate(NavigationTree.Webview.name)
+	}
+
+	override fun openRepository(repository: RepositoryTree) {
+		val repositoryString = repository.toJson()
+		navController.navigate(NavigationTree.Repository.name + "/$repositoryString")
 	}
 }

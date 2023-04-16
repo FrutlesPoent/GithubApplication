@@ -90,8 +90,8 @@ object AppAuth {
 		const val RESPONSE_TYPE = ResponseTypeValues.CODE
 		const val SCOPE = "user,repo"
 
-		const val CLIENT_ID = "310164ec9635184ffc56"
-		const val CLIENT_SECRET = "843f4b4f23ddd3e802398529efc092a81e5d7fef"
+		const val CLIENT_ID = "351c4feea007acedacac"
+		const val CLIENT_SECRET = "34c32b98ba03d07f6c228fd4c0e7246cbf62ce97"
 		const val CALLBACK_URL = "ru.curs.githubapplication://github.com/callback"
 		const val LOGOUT_CALLBACK_URL = "ru.curs.githubapplication://github.com/logout_callback"
 	}

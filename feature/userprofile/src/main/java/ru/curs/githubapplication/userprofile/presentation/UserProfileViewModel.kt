@@ -4,6 +4,8 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import ru.curs.githubapplication.component.ui.mvvm.BaseViewModel
+import ru.curs.githubapplication.component.ui.mvvm.async
+import ru.curs.githubapplication.domain.entity.RepositoryTree
 import ru.curs.githubapplication.domain.entity.UserProfile
 import ru.curs.githubapplication.domain.usecase.GetRepositoryListUseCase
 import ru.curs.githubapplication.domain.usecase.GetRepositoryReadmeUseCase
@@ -24,18 +26,35 @@ class UserProfileViewModel(
 
 	fun init() {
 		if (state == UserProfileState.Initial) {
-			launch {
+			load()
+		}
+	}
+
+	private fun load() {
+		launch {
+			try {
 				state = UserProfileState.Loading
-				val profileInfo = getUserProfileUseCase()
-				val repositoryList = getRepositoryListUseCase()
+				val profileInfoDeffered = async { getUserProfileUseCase() }
+				val repositoryList = async { getRepositoryListUseCase() }
+
+				val profileInfo = profileInfoDeffered.await()
 				val readmeRepository = getRepositoryReadmeUseCase(profileInfo.login)
 				userProfileInfo = profileInfo
 				state = UserProfileState.Content(
 					userProfile = profileInfo,
-					repositoryList = repositoryList,
+					repositoryList = repositoryList.await(),
 					readmeRepo = readmeRepository,
 				)
+			} catch (throwable: Exception) {
+				state = UserProfileState.Error
+				throwable.printStackTrace()
 			}
+		}
+	}
+
+	fun loadOnError() {
+		if (state == UserProfileState.Error) {
+			load()
 		}
 	}
 
@@ -43,8 +62,13 @@ class UserProfileViewModel(
 		router.openFollowers()
 	}
 
-	fun openRepository(repositoy: String) {
-		// todo router.openDetails(repositoy)
+	fun openRepository(repository: String) {
+		val contentState = state as UserProfileState.Content
+		val repositoryInfo = RepositoryTree(
+			repo = repository,
+			owner = contentState.userProfile.login
+		)
+		router.openRepository(repositoryInfo)
 	}
 
 	fun nothing() {

@@ -6,9 +6,16 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import org.koin.java.KoinJavaComponent.inject
+import ru.curs.feature.githuapplication.ui.WebviewScreen
+import ru.curs.githubapplication.domain.entity.RepositoryTree
 import ru.curs.githubapplication.feature.authorization.ui.AuthorizationScreen
 import ru.curs.githubapplication.feature.splash.ui.SplashScreen
+import ru.curs.githubapplication.fileview.ui.FileViewScreen
 import ru.curs.githubapplication.navigation.NavigationTree
+import ru.curs.githubapplication.navigation.ext.fromJson
+import ru.curs.githubapplication.repository.ui.RepositoryScreen
+import ru.curs.githubapplication.repositorydetail.entity.FileUrlTransfer
+import ru.curs.githubapplication.repositorydetail.ui.RepositoryDetailScreen
 import ru.curs.githubapplication.ui.FollowScreen
 import ru.curs.githubapplication.userprofile.ui.UserProfileScreen
 
@@ -20,11 +27,29 @@ fun ApplicationScreen() {
 		composable(NavigationTree.Authorization.name) { AuthorizationScreen() }
 		composable(NavigationTree.UserProfile.name) { UserProfileScreen() }
 		composable(NavigationTree.Follows.name) { FollowScreen() }
-		composable(NavigationTree.UserProfileDetail.name + "/{username}") {navBackStackEntry ->
+		composable(NavigationTree.UserProfileDetail.name + "/{username}") { navBackStackEntry ->
 			navBackStackEntry.arguments?.getString("username")?.let { userNameString ->
 				// TODO Добавить детали
 			}
-			
+		}
+		composable(NavigationTree.Repository.name + "/{repository}") { navBackStackEntry ->
+			navBackStackEntry.arguments?.getString("repository")?.let { model ->
+				val repository = model.fromJson(RepositoryTree::class.java)
+				RepositoryScreen(repository)
+			}
+		}
+		composable(NavigationTree.Webview.name) { WebviewScreen() }
+		composable(NavigationTree.RepositoryDetail.name + "/{repository}") { navBackStackEntry ->
+			navBackStackEntry.arguments?.getString("repository")?.let { it ->
+				val repository = it.fromJson(RepositoryTree::class.java)
+				RepositoryDetailScreen(repository = repository)
+			}
+		}
+		composable(NavigationTree.FileView.name + "/{rawDataFile}") { navBackStackEntry ->
+			navBackStackEntry.arguments?.getString("rawDataFile")?.let { it ->
+				val rawDataFile = it.fromJson(FileUrlTransfer::class.java)
+				FileViewScreen(rawDataFile = rawDataFile)
+			}
 		}
 	}
 

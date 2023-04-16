@@ -8,6 +8,9 @@ import ru.curs.githubapplication.data.datasource.RepositoryDataSource
 import ru.curs.githubapplication.data.datasource.RepositoryDataSourceImpl
 import ru.curs.githubapplication.data.repository.RepositoryRepositoryImpl
 import ru.curs.githubapplication.domain.repository.RepositoryRepository
+import ru.curs.githubapplication.domain.usecase.GetBranchesUseCase
+import ru.curs.githubapplication.domain.usecase.GetRepositoryContentUseCase
+import ru.curs.githubapplication.domain.usecase.GetRepositoryIssuesUseCase
 import ru.curs.githubapplication.domain.usecase.GetRepositoryListUseCase
 import ru.curs.githubapplication.domain.usecase.GetRepositoryReadmeUseCase
 
@@ -17,4 +20,7 @@ val repositoryModule = module {
 	single<RepositoryRepository> { RepositoryRepositoryImpl(get()) }
 	factory { GetRepositoryListUseCase(get()) }
 	factory { GetRepositoryReadmeUseCase(get()) }
+	factory { GetRepositoryContentUseCase(get()) }
+	factory { GetBranchesUseCase(get()) }
+	factory { GetRepositoryIssuesUseCase(get()) }
 }

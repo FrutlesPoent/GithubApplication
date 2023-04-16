@@ -21,23 +21,21 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import ru.curs.githubapplication.component.design.resources.R
 
 @Composable
 fun TextWithIcon(
 	text: String,
-	count: Int,
-	repositoryListClick: () -> Unit,
+	rightText: String,
+	listClick: () -> Unit,
 	painter: Painter,
 ) {
 	Surface(
 		color = MaterialTheme.colors.primary,
 		modifier = Modifier
 			.fillMaxWidth()
-			.clickable { repositoryListClick() },
+			.clickable { listClick() },
 	) {
 		Column(
 			horizontalAlignment = Alignment.End
@@ -62,7 +60,7 @@ fun TextWithIcon(
 						textAlign = TextAlign.Left
 					)
 					Text(
-						text = count.toString(),
+						text = rightText,
 						style = MaterialTheme.typography.h6,
 						textAlign = TextAlign.Center,
 						modifier = Modifier
