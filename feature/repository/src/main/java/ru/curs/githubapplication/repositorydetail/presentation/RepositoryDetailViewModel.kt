@@ -38,6 +38,7 @@ class RepositoryDetailViewModel(
 			owner = repo.owner,
 			repo = repo.repo,
 			path = repo.path,
+			branch = repo.branch,
 		)
 		return getParsedFileNames(repositoryContent)
 	}

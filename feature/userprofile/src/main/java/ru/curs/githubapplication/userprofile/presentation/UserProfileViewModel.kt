@@ -66,7 +66,7 @@ class UserProfileViewModel(
 		val contentState = state as UserProfileState.Content
 		val repositoryInfo = RepositoryTree(
 			repo = repository,
-			owner = contentState.userProfile.login
+			owner = contentState.userProfile.login,
 		)
 		router.openRepository(repositoryInfo)
 	}

@@ -7,10 +7,13 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import org.koin.java.KoinJavaComponent.inject
 import ru.curs.feature.githuapplication.ui.WebviewScreen
+import ru.curs.githubapplication.domain.entity.IssueEntity
 import ru.curs.githubapplication.domain.entity.RepositoryTree
 import ru.curs.githubapplication.feature.authorization.ui.AuthorizationScreen
 import ru.curs.githubapplication.feature.splash.ui.SplashScreen
 import ru.curs.githubapplication.fileview.ui.FileViewScreen
+import ru.curs.githubapplication.issue.detail.ui.IssueDetailScreen
+import ru.curs.githubapplication.issue.ui.IssueScreen
 import ru.curs.githubapplication.navigation.NavigationTree
 import ru.curs.githubapplication.navigation.ext.fromJson
 import ru.curs.githubapplication.repository.ui.RepositoryScreen
@@ -51,6 +54,24 @@ fun ApplicationScreen() {
 				FileViewScreen(rawDataFile = rawDataFile)
 			}
 		}
+		composable(NavigationTree.Issue.name + "/{repository}") { navBackStackEntry ->
+			navBackStackEntry.arguments?.getString("repository")?.let { it ->
+				val repository = it.fromJson(RepositoryTree::class.java)
+				IssueScreen(repository = repository)
+			}
+		}
+		composable(NavigationTree.IssueDetail.name + "/{issue}") { navBackStackEntry ->
+			navBackStackEntry.arguments?.getString("issue")?.let { it ->
+				val issue = it.fromJson(IssueEntity::class.java)
+				IssueDetailScreen(issue = issue)
+			}
+		}
+//		composable(NavigationTree.Repository.name + "/{repository") { navBackStackEntry ->
+//			navBackStackEntry.arguments?.get("repository")?.let { it ->
+//				val repository = it.fromJson(RepositoryTree::class.java)
+//				RepositoryScreen(repository)
+//			}
+//		}
 	}
 
 }

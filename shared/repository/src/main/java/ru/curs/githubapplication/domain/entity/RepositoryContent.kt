@@ -11,5 +11,5 @@ data class RepositoryContent(
     val sha: String?,
     val size: Int?,
     val type: String?,
-    val url: String?
+    val url: String,
 )

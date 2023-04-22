@@ -10,4 +10,6 @@ enum class NavigationTree {
 	Repository,
 	RepositoryDetail,
 	FileView,
+	Issue,
+	IssueDetail,
 }

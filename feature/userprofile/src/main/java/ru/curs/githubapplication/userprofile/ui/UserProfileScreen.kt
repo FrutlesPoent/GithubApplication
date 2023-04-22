@@ -103,20 +103,15 @@ fun UserProfileScreen(viewModel: UserProfileViewModel = getViewModel()) {
 					painter = painterResource(id = ru.curs.githubapplication.component.design.resources.R.drawable.organization)
 				)
 				Spacer(modifier = Modifier.padding(4.dp))
-				TextWithIcon(
-					text = "Обо мне",
-					rightText = if (contentState.readmeRepo.first().download_url != null) 1.toString() else 0.toString(),
-					listClick = { /*TODO*/ },
-					painter = rememberAsyncImagePainter(contentState.userProfile.avatar_url)
-				)
-//				if (contentState.readmeRepo.first().download_url != null) {
-//					MarkDown(
-//						url = URL(contentState.readmeRepo.first().git_url),
-//						modifier = Modifier
-//							.fillMaxSize(),
-//						shouldOpenUrlInBrowser = true,
-//					)
-//				}
+//				TextWithIcon(
+//					text = "Обо мне",
+//					rightText = if (contentState.readmeRepo.first().download_url != null) 1.toString() else 0.toString(),
+//					listClick = { /*TODO*/ },
+//					painter = rememberAsyncImagePainter(contentState.userProfile.avatar_url)
+//				)
+			}
+			if (contentState.readmeRepo.first().download_url != null) {
+
 			}
 		}
 	}
@@ -127,12 +122,12 @@ fun HorizontalRecyclerView(list: List<RepositoryEntity>, username: String, imgUr
 	Surface(color = MaterialTheme.colors.primary) {
 		Column {
 			Row {
-				Image(
-					painter = painterResource(id = ru.curs.githubapplication.component.design.resources.R.drawable.repository),
-					contentDescription = "RepositoryIcon",
-					modifier = Modifier.size(60.dp)
-				)
-				Text(text = "Репозитории")
+//				Image(
+//					painter = painterResource(id = ru.curs.githubapplication.component.design.resources.R.drawable.repository),
+//					contentDescription = "RepositoryIcon",
+//					modifier = Modifier.size(35.dp)
+//				)
+				Text(text = "Репозитории", style = MaterialTheme.typography.caption)
 			}
 			LazyRow {
 				items(items = list) {
@@ -188,7 +183,6 @@ private fun ListItem(
 			Text(text = language, style = MaterialTheme.typography.body1, color = language.color())
 			Text(text = repositoryName, style = MaterialTheme.typography.body1, color = Color.White)
 		}
-
 	}
 }
 

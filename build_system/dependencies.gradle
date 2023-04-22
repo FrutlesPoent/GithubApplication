@@ -28,6 +28,7 @@ ext.Dependencies = [
 	test_junit             : "androidx.test.ext:junit:${Versions.TEST_JUNIT}",
 	espresso_core          : "androidx.test.espresso:espresso-core:${Versions.ESPRESSO_CORE}",
 	core_testing           : "androidx.arch.core:core-testing:${Versions.CORE_TESTING}",
+//	junit_api : ""
 
 	cicerone               : "com.github.terrakok:cicerone:${Versions.CICERONE}",
 	fragment               : "androidx.fragment:fragment-ktx:${Versions.FRAGMENT}",

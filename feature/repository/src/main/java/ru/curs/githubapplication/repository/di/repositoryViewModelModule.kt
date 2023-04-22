@@ -11,6 +11,7 @@ val repositoryViewModel = module {
 			router = get(),
 			repository = repository,
 			getRepositoryContentUseCase = get(),
+			getRepositoryIssuesUseCase = get(),
 			getBranchesUseCase = get(),
 		)
 	}

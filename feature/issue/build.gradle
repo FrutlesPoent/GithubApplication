@@ -27,6 +27,7 @@ dependencies {
 
 	implementation(project(':shared:repository'))
 	implementation(project(":shared:userprofile"))
+	implementation(project(':shared:issue'))
 
 	implementation(project(':library:network'))
 	implementation(project(':library:rawdataparser'))

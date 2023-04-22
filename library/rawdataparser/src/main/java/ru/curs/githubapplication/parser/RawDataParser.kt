@@ -5,15 +5,13 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import ru.curs.githubapplication.entity.Line
 import java.net.URL
-import java.net.URLDecoder
 
-class ParseRawData() {
+class ParseRawData {
 
-	operator suspend fun invoke(text: URL): List<Line> {
-		val decodedUrl = URL(URLDecoder.decode(text.toString()))
+	suspend operator fun invoke(text: URL): List<Line> {
 		val resultList = mutableListOf<Line>()
 		val job = CoroutineScope(Dispatchers.IO).async {
-			val response = decodedUrl.readText().split("\n")
+			val response = text.readText().split("\n")
 			for (i in response.indices) {
 				resultList.add(
 					Line(

@@ -7,7 +7,7 @@ class GetRepositoryContentUseCase(
 	private val repository: RepositoryRepository,
 ) {
 
-	suspend operator fun invoke(owner: String, repo: String, path: String): List<RepositoryContent> {
-		return repository.getRepositoryContent(owner, repo, path)
+	suspend operator fun invoke(owner: String, repo: String, path: String, branch: String?): List<RepositoryContent> {
+		return repository.getRepositoryContent(owner, repo, path, branch)
 	}
 }

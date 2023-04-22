@@ -6,7 +6,9 @@ interface RepositoryRouter {
 
 	fun openRepositoryDetail(contentList: RepositoryTree)
 
-	fun openIssues()
+	fun openIssues(contentList: RepositoryTree)
+
+	fun openRepositoryDifferentBranch(contentList: RepositoryTree)
 
 	fun back()
 }

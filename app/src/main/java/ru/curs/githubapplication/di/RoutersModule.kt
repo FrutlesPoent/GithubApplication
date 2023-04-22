@@ -9,9 +9,13 @@ import org.koin.dsl.module
 import ru.curs.githubapplication.feature.authorization.presentation.AuthorizationRouter
 import ru.curs.githubapplication.feature.splash.presentation.SplashRouter
 import ru.curs.githubapplication.fileview.presentation.FileViewRouter
+import ru.curs.githubapplication.issue.detail.presentation.IssueDetailRouter
+import ru.curs.githubapplication.issue.presentation.IssueRouter
 import ru.curs.githubapplication.navigation.router.AuthorizationRouterImpl
 import ru.curs.githubapplication.navigation.router.FileViewRouterImpl
 import ru.curs.githubapplication.navigation.router.FollowRouterImpl
+import ru.curs.githubapplication.navigation.router.IssueDetailRouterImpl
+import ru.curs.githubapplication.navigation.router.IssueRouterImpl
 import ru.curs.githubapplication.navigation.router.RepositoryDetailRouterImpl
 import ru.curs.githubapplication.navigation.router.RepositoryRouterImpl
 import ru.curs.githubapplication.navigation.router.SplashRouterImpl
@@ -35,4 +39,6 @@ val routersModule = module {
 	factory<RepositoryRouter> { RepositoryRouterImpl(get()) }
 	factory<RepositoryDetailRouter> { RepositoryDetailRouterImpl(get()) }
 	factory<FileViewRouter> { FileViewRouterImpl(get()) }
+	factory<IssueRouter> { IssueRouterImpl(get()) }
+	factory<IssueDetailRouter> { IssueDetailRouterImpl(get()) }
 }

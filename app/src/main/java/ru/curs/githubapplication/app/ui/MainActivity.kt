@@ -20,8 +20,11 @@ import ru.curs.githubapplication.di.routersModule
 import ru.curs.githubapplication.feature.authorization.di.authorizationModule
 import ru.curs.githubapplication.feature.splash.di.splashModule
 import ru.curs.githubapplication.fileview.di.fileViewViewModelModule
+import ru.curs.githubapplication.issue.detail.di.issueDetailViewModelModule
+import ru.curs.githubapplication.issue.di.issueViewModelModule
 import ru.curs.githubapplication.repository.di.repositoryViewModel
 import ru.curs.githubapplication.repositorydetail.di.repositoryDetailViewModelModule
+import ru.curs.githubapplication.shared.issue.data.di.issueModule
 import ru.curs.githubapplication.userprofile.di.userProfileViewModelModule
 
 class MainActivity : FragmentActivity() {
@@ -43,6 +46,9 @@ class MainActivity : FragmentActivity() {
 			rawDataParser,
 			repositoryDetailViewModelModule,
 			fileViewViewModelModule,
+			issueViewModelModule,
+			issueDetailViewModelModule,
+			issueModule,
 		)
 	}
 

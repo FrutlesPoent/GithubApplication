@@ -17,5 +17,21 @@ dependencies {
 	implementation Dependencies.retrofit
 	implementation Dependencies.appauth
 
+//	testImplementation Dependencies.mockito_core
+//	testImplementation Dependencies.mockito_inline
+//	testImplementation Dependencies.mockito_kotlin
+	testImplementation Dependencies.junit
+	testImplementation Dependencies.test_junit
+	testImplementation Dependencies.core_testing
+	testImplementation Dependencies.arch_core_testing
+	testImplementation('org.mockito:mockito-core:4.1.0')
+	testImplementation "org.mockito.kotlin:mockito-kotlin:4.1.0"
+	testImplementation(project(":component:test"))
+	testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.1"
+	testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.1"
+	testImplementation "org.mockito.mockito-junit-jupiter:2.23.4"
+	testImplementation "org.junit.jupiter:junit-jupiter-api:5.8.2"
+	testImplementation "androidx.arch.core:core-testing:2.0.0"
+	testImplementation "androidx.compose.runtime:runtime:1.0.0"
 	implementation(project(':library:network'))
 }

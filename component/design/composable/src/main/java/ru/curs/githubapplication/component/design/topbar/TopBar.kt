@@ -2,6 +2,7 @@ package ru.curs.githubapplication.component.design.topbar
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -11,6 +12,7 @@ import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -38,6 +40,34 @@ fun AppBar(text: String, onBackArrowClick: () -> Unit) {
 			}
 
 		}
+	}
+}
 
+@Composable
+fun AppBarWithAddNew(text: String, onBackArrowClick: () -> Unit, onAddClick: () -> Unit) {
+	Surface(color = MaterialTheme.colors.primary) {
+		TopAppBar(modifier = Modifier.fillMaxWidth()) {
+			Row(
+				modifier = Modifier
+					.padding(8.dp)
+					.fillMaxWidth()
+					.fillMaxHeight(),
+				verticalAlignment = Alignment.CenterVertically,
+			) {
+				Icon(
+					imageVector = Icons.Filled.ArrowBack,
+					contentDescription = "back button",
+					Modifier.clickable { onBackArrowClick() },
+				)
+				Text(text = text, style = MaterialTheme.typography.caption, color = Color.White)
+				Spacer(modifier = Modifier.weight(1f))
+				Icon(
+					imageVector = Icons.Filled.Add,
+					contentDescription = "Add new",
+					modifier = Modifier.clickable { onAddClick() }
+				)
+			}
+
+		}
 	}
 }

@@ -1,0 +1,13 @@
+apply plugin: Plugins.android_library
+apply plugin: Plugins.kotlin_android
+
+apply from: "$rootDir/build_system/androidLibrary.gradle"
+dependencies {
+	implementation Dependencies.core
+	implementation Dependencies.mockito_kotlin
+	implementation Dependencies.junit
+	implementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.1"
+	implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.1"
+	implementation "org.junit.jupiter:junit-jupiter-api:5.8.2"
+	implementation 'org.junit.jupiter:junit-jupiter'
+}
